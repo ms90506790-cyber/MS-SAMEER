@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Welcome, {{ user }}</h2>
+  <div class="grid">
+    {% for subject, files in files_by_subject.items() %}
+      <div class="card">
+        <h3>{{ subject }}</h3>
+        <ul class="file-list">
+          {% for f in files %}
+            <li>
+              {{ f }}
+              <a class="btn small" href="{{ url_for('download', subject=subject, filename=f) }}">Download</a>
+            </li>
+          {% else %}
+            <li class="muted">No files yet</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

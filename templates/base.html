@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MS SAMEER Study Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-left">
+      <a href="{{ url_for('index') }}" class="brand">MS SAMEER</a>
+    </div>
+    <div class="nav-right">
+      {% if session.get('role') == 'admin' %}
+        <a class="btn small" href="{{ url_for('admin') }}">Admin Panel</a>
+        <a class="btn small ghost" href="{{ url_for('logout') }}">Logout</a>
+      {% elif session.get('role') == 'student' %}
+        <a class="btn small" href="{{ url_for('student_dashboard') }}">Dashboard</a>
+        <a class="btn small ghost" href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a class="btn small" href="{{ url_for('login') }}">Login</a>
+        <a class="btn small ghost" href="{{ url_for('signup') }}">Sign Up</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-area">
+            {% for cat, msg in messages %}
+              <div class="flash {{ cat }}">{{ msg }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© MS SAMEER Study Portal</p>
+  </footer>
+</body>
+</html>

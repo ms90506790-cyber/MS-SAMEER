@@ -1,0 +1,53 @@
+/* reset-ish */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Segoe UI", Roboto, Arial, sans-serif; background: linear-gradient(135deg,#2b5876,#4e4376); color: #222; min-height: 100vh; }
+
+/* layout */
+.nav { display:flex; justify-content:space-between; align-items:center; padding:14px 20px; background: rgba(255,255,255,0.06); color:#fff; }
+.brand { color:#fff; font-weight:700; text-decoration:none; font-size:20px; }
+.nav-right a { margin-left:10px; text-decoration:none; }
+
+/* container */
+.container { max-width:1100px; margin:30px auto; padding:20px; background: rgba(255,255,255,0.98); border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+
+/* hero */
+.hero { text-align:center; padding:30px 10px; color:#fff; margin-bottom:20px; }
+.hero .lead { color:rgba(255,255,255,0.9); margin:12px 0 20px; }
+.hero .btn { margin:6px; }
+
+/* buttons */
+.btn { display:inline-block; background:#2b6ef6; color:#fff; padding:10px 18px; border-radius:8px; text-decoration:none; border:none; cursor:pointer; }
+.btn.ghost { background:transparent; border:1px solid rgba(255,255,255,0.3); color:#fff; }
+.btn.small { padding:6px 10px; font-size:0.9em; border-radius:6px; }
+.btn.danger { background:#ff4d4f; }
+
+/* auth card */
+.auth-card { max-width:420px; margin:20px auto; background:#fff; padding:22px; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.12); text-align:center; }
+.auth-card input { width:100%; padding:12px; margin:8px 0; border-radius:6px; border:1px solid #ddd; }
+.auth-form { margin-top:10px; }
+
+/* grid and cards */
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; }
+.card { background:#fff; padding:16px; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.06); }
+.subject-card { background:rgba(255,255,255,0.85); padding:16px; border-radius:8px; display:inline-block; width:200px; margin:12px; }
+
+/* file list */
+.file-list { list-style:none; padding-left:0; }
+.file-list li { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px dashed #eee; }
+
+/* small */
+.muted { color:#666; font-size:0.95em; }
+.flash-area { margin-bottom:12px; }
+.flash { padding:8px 12px; border-radius:6px; margin-bottom:6px; }
+.flash.success { background: #e6ffed; color: #1c7c3a; }
+.flash.danger { background: #ffe6e6; color: #b32a2a; }
+.flash.info { background:#e6f0ff; color:#1a4fb3; }
+
+/* footer */
+.footer { text-align:center; padding:18px; color:#fff; margin-top:18px; opacity:0.9; }
+
+/* responsive */
+@media(max-width:900px) {
+  .grid { grid-template-columns: 1fr; }
+  .container { margin:12px; }
+}

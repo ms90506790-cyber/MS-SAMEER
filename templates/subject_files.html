@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Subject: {{ subject }}</h2>
+  <ul class="file-list">
+    {% for f in files %}
+      <li>
+        {{ f }}
+        <a class="btn small" href="{{ url_for('download', subject=subject, filename=f) }}">Download</a>
+      </li>
+    {% else %}
+      <li class="muted">No files</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="hero">
+    <h1>Welcome to <span class="accent">MS SAMEER</span> Study Portal</h1>
+    <p class="lead">Free study materials — sign up and download subject-wise resources.</p>
+    <div class="hero-buttons">
+      <a class="btn" href="{{ url_for('signup') }}">Get Started (Sign Up)</a>
+      <a class="btn ghost" href="{{ url_for('login') }}">Login</a>
+    </div>
+
+    <div class="subjects-grid">
+      {% for s in subjects %}
+        <div class="subject-card">
+          <h3>{{ s }}</h3>
+          <p><a href="{{ url_for('subject_files', subject=s) }}">View Files</a></p>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

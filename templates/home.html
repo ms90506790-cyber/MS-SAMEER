@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - MS SAMEER</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, {{ user }} 🎓</h2>
+        <p>Download your study materials:</p>
+        <ul>
+            {% for file in files %}
+                <li><a href="{{ url_for('download', filename=file) }}">{{ file }}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>
